@@ -14,38 +14,10 @@ boolean player1HasBall = false;
 
 PImage courtImg, ball;
 
+
+
+
 //functions
-void keyPressed() {
-  if (key == 'a' && playerX - velocity > 0) {
-    playerX -= velocity;
-    if (player1HasBall == true) {
-      ballX -= velocity;
-    }
-  }
-  if (key == 'd' && playerX + velocity + 50 < 612) {
-    playerX += velocity;
-    if (player1HasBall == true) {
-      ballX += velocity;
-    }
-  }
-  if (key == 'w' && playerY - velocity > 0) {
-    playerY -= velocity;
-    if (player1HasBall == true) {
-      ballY -= velocity;
-    }
-  }
-  if (key == 's' && playerY + velocity + 50 < 355) {
-    playerY += velocity;
-    if (player1HasBall == true) {
-      ballY += velocity;
-    }
-  }
-  
-  if (key == 'x') {
-    shoot();
-  }
-  
-}
 void createPlayer() {
   rect(playerX, playerY, 50, 50);
 }
@@ -92,32 +64,16 @@ boolean shotSuccessCalculator() {
   }
 }
 
-void shoot() {
-  if (player1HasBall && shotSuccessCalculator()) {
-    player1HasBall = false;
-    while (ballX != hoopX || ballY != hoopY) {
-      if (ballX > hoopX) {
-        ballX -= 1;
-      }
-      if (ballX < hoopX) {
-        ballX += 1;
-      }
-      if (ballY > hoopY) {
-        ballY -= 1;
-      }
-      if (ballY < hoopY) {
-        ballY += 1;
-      }
-    }
-  }
-}
-
-
 //loops
 void setup() {
   size(612, 355);
   courtImg = loadImage("basketball-court-clipart.jpg");
   ball = loadImage("ball.png");
+  getSavedInfo();
+  //spawns the player into the saved X and Y
+  playerX = parseInt(playerData[0]);
+  playerY = parseInt(playerData[1]);
+  
 }
 
 void draw() {
@@ -127,6 +83,7 @@ void draw() {
   drawBall();
   shotBar();
   keyReleased = 'n';
+  setSavedInfo();
   //print(mouseX + " " + mouseY + "\n");
   //print(shotTakenSpot() + "\n");
 }
