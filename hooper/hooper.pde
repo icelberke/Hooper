@@ -10,6 +10,8 @@ int hoopY = 168;
 
 int velocity = 5;
 
+char gameState = '0';
+
 boolean player1HasBall = false;
 
 PImage courtImg, ball;
@@ -77,13 +79,19 @@ void setup() {
 }
 
 void draw() {
-  background(courtImg);
-  rebound();
-  createPlayer();
-  drawBall();
-  shotBar();
-  keyReleased = 'n';
-  setSavedInfo();
-  //print(mouseX + " " + mouseY + "\n");
-  //print(shotTakenSpot() + "\n");
+  if(gameState == '0'){
+    gameState0();
+  }else if(gameState == '1'){
+    gameState1();
+  }else if(gameState == '2'){
+    gameState2();
+  }else if(gameState == '3'){
+    gameState3();
+  }else if(gameState == '4'){
+    gameState4();
+  }else if(gameState == '5'){
+    gameState5();
+  }else if(gameState == '6'){
+    gameState6();
+  }
 }
