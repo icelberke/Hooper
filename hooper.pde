@@ -14,7 +14,7 @@ char gameState = '0';
 
 boolean player1HasBall = false;
 
-PImage courtImg, ball, menuPic, gameSelectPage;
+PImage courtImg, ball;
 
 
 
@@ -71,8 +71,6 @@ void setup() {
   size(612, 355);
   courtImg = loadImage("basketball-court-clipart.jpg");
   ball = loadImage("ball.png");
-  menuPic = loadImage("test.jpg");
-  gameSelectPage = loadImage("gameSelectPage.jpg");
   getSavedInfo();
   //spawns the player into the saved X and Y
   playerX = parseInt(playerData[0]);

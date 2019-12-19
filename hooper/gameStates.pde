@@ -1,33 +1,51 @@
 char prevState = '0';
 //Game State 0
+Button Back = new Button(10,10,70,50,20, "Back", black, blue, white, grey);
+Button Pause = new Button(10,10,70,50,20, "Pause", black, blue, white, grey);
+Button Play = new Button(25, 130, 200, 50, 40, "Play", black, blue, white, grey);
+Button Settings = new Button(25, 210, 200, 50, 40, "Settings", black, blue, white, grey);
+Button Quit = new Button(25, 290, 200, 50, 40, "Quit", black, blue, white, grey);
 void gameState0() {
-  background(0,0,0);
-      
-  if(createButton(25, 130,200,50, "Play", 40, false, 30)){
-        gameState = '1';
+  background(menuPic);
+
+  Play.Render();
+  if(Play.Event() && mousePressed){
+    gameState = '1';
   }
-  if(createButton(25, 210,200,50, "Settings", 40, false, 30)) {
+  
+  Settings.Render();
+  if(Settings.Event() && mousePressed) {
     gameState = '6';
   }
-    
-  if(createButton(25, 290,200,50, "Quit", 40, false, 30)) {
+  
+  Quit.Render();
+  if(Quit.Event() && mousePressed) {
     exit();
   }
 }
 
+Button Game1 = new Button(156, 50, 300, 65, 0, "Game 1", black, blue, white, grey);
+Button Game2 = new Button(156, 150, 300, 65, 0, "Game 2", black, blue, white, grey);
+Button Game3 = new Button(156, 250, 300, 65, 0, "Game 3", black, blue, white, grey);
+
 //gameState 1
 void gameState1(){
-  background(0,0,0);
-  if(createButton(156, 50,300,65, "Game 1", 0, true, 30)){
+  background(gameSelectPage);
+  Game1.Render();
+  if(Game1.Event() && mousePressed){
     gameState = '2';
   }
-  if(createButton(156, 150,300,65, "Game 2", 0, true, 30)){
+  Game2.Render();
+  if(Game2.Event() && mousePressed){
     gameState = '3';
   }
-  if(createButton(156, 250,300,65, "Game 3", 0, true, 30)){
+  Game3.Render();
+  if(Game3.Event() && mousePressed){
     gameState = '4';
   }
-  if(backButton()){
+  Back.Render();
+  
+  if(Back.Event() && mousePressed){
     gameState = '0';
   }
 }
@@ -41,7 +59,11 @@ void gameState3(){
   shotBar();
   keyReleased = 'n';
   setSavedInfo();
-  pauseButton();
+  Pause.Render();
+  
+  if(Pause.Event() && mousePressed){
+    gameState = '5';
+  }
 }
 //gameState 2
 void gameState2(){
@@ -52,7 +74,11 @@ void gameState2(){
   shotBar();
   keyReleased = 'n';
   setSavedInfo();
-  pauseButton();
+  Pause.Render();
+  
+  if(Pause.Event() && mousePressed){
+    gameState = '5';
+  }
 }
 //gameState 4
 void gameState4(){
@@ -63,22 +89,32 @@ void gameState4(){
   shotBar();
   keyReleased = 'n';
   setSavedInfo();
-  pauseButton();
+  Pause.Render();
+  
+  if(Pause.Event() && mousePressed){
+    gameState = '5';
+  }
 }
 
+Button Home = new Button(300, 130, 200, 50, 40, "Home", black, blue, white, grey);
 //Pause page
 void gameState5(){
   background(0,0,0);
-  if(createButton(206, 100, 200, 50, "Home", 20, false, 30)){
+  Home.Render();
+  if(Home.Event() && mousePressed){
     gameState = '0';
   }
-  if(createButton(206, 180, 200, 50, "Settings", 20, false, 30)){
+  Settings.Render();
+  if(Settings.Event() && mousePressed){
     gameState = '6';
   }
+  Back.Render();
   
-  if(backButton()){
+  if(Back.Event() && mousePressed){
     gameState = prevState;
   }
+  
+
 }
 //Declare global slide values
 int soundSliderValue = 128;
@@ -89,11 +125,14 @@ void gameState6(){
   background(0,0,0);
   fill(255,0,0);
   textSize(60);
-  text("SETTINGS",160,60);
+  text("SETTINGS",170,60);
   soundSliderValue = createSlider(78, 100, 100, 30, soundSliderValue);
   playerSpeedSliderValue = createSlider(256, 100, 100, 30, playerSpeedSliderValue);
   playerAccuracySliderValue = createSlider(434, 100, 100, 30, playerAccuracySliderValue);  
-  if(backButton()){
+
+  Back.Render();
+  
+  if(Back.Event() && mousePressed){
     gameState = '0';
   }
   
