@@ -97,3 +97,17 @@ void draw() {
     gameState6();
   }
 }
+
+boolean wait(int waitTime) {
+  boolean getTime = true;
+  int oldTime = 0;
+  
+  if ( getTime ) {
+    oldTime = millis();
+    getTime = false;
+  }
+  
+  while ( millis() < oldTime + waitTime ) {
+  }
+  return true;
+}

@@ -10,16 +10,19 @@ void gameState0() {
 
   Play.Render();
   if(Play.Event() && mousePressed){
+    wait(100);
     gameState = '1';
   }
   
   Settings.Render();
   if(Settings.Event() && mousePressed) {
+    wait(100);
     gameState = '6';
   }
   
   Quit.Render();
   if(Quit.Event() && mousePressed) {
+    wait(100);
     exit();
   }
 }
@@ -33,19 +36,23 @@ void gameState1(){
   background(gameSelectPage);
   Game1.Render();
   if(Game1.Event() && mousePressed){
+    wait(100);
     gameState = '2';
   }
   Game2.Render();
   if(Game2.Event() && mousePressed){
+    wait(100);
     gameState = '3';
   }
   Game3.Render();
   if(Game3.Event() && mousePressed){
+    wait(100);
     gameState = '4';
   }
   Back.Render();
   
   if(Back.Event() && mousePressed){
+    wait(100);
     gameState = '0';
   }
 }
@@ -62,6 +69,7 @@ void gameState3(){
   Pause.Render();
   
   if(Pause.Event() && mousePressed){
+    wait(100);
     gameState = '5';
   }
 }
@@ -77,6 +85,7 @@ void gameState2(){
   Pause.Render();
   
   if(Pause.Event() && mousePressed){
+    wait(100);
     gameState = '5';
   }
 }
@@ -92,6 +101,7 @@ void gameState4(){
   Pause.Render();
   
   if(Pause.Event() && mousePressed){
+    wait(100);
     gameState = '5';
   }
 }
@@ -102,15 +112,18 @@ void gameState5(){
   background(0,0,0);
   Home.Render();
   if(Home.Event() && mousePressed){
+    wait(100);
     gameState = '0';
   }
   Settings.Render();
   if(Settings.Event() && mousePressed){
+    wait(100);
     gameState = '6';
   }
   Back.Render();
   
   if(Back.Event() && mousePressed){
+    wait(100);
     gameState = prevState;
   }
   
@@ -133,6 +146,7 @@ void gameState6(){
   Back.Render();
   
   if(Back.Event() && mousePressed){
+    wait(100);
     gameState = '0';
   }
   
