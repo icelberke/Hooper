@@ -14,7 +14,7 @@ char gameState = '0';
 
 boolean player1HasBall = false;
 
-PImage courtImg, ball, menuPic, gameSelectPage;
+PImage courtImg, ball, menuPic, gameSelectPage, settings, controls;
 
 
 
@@ -71,8 +71,10 @@ void setup() {
   size(612, 355);
   courtImg = loadImage("basketball-court-clipart.jpg");
   ball = loadImage("ball.png");
-  menuPic = loadImage("test.jpg");
+  menuPic = loadImage("test.png");
   gameSelectPage = loadImage("gameSelectPage.jpg");
+  settings = loadImage("settingsbg.png");
+  controls = loadImage("controlsbg.png");
   getSavedInfo();
   //spawns the player into the saved X and Y
   playerX = parseInt(playerData[0]);
@@ -95,6 +97,10 @@ void draw() {
     gameState5();
   }else if(gameState == '6'){
     gameState6();
+  }else if(gameState == '7'){
+    gameState7();
+  }else if(gameState == '8'){
+    gameState8();
   }
 }
 
