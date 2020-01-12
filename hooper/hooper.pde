@@ -14,7 +14,7 @@ char gameState = '0';
 
 boolean player1HasBall = false;
 
-PImage courtImg, ball, menuPic, gameSelectPage, settings, controls;
+PImage courtImg, whiteCourt, viceCourt, ball, menuPic, gameSelectPage, settings, controls, pause, visualsbg;
 
 
 
@@ -75,6 +75,10 @@ void setup() {
   gameSelectPage = loadImage("gameSelectPage.jpg");
   settings = loadImage("settingsbg.png");
   controls = loadImage("controlsbg.png");
+  whiteCourt = loadImage("whiteCourt.png");
+  viceCourt = loadImage("viceCourt.png");
+  pause = loadImage("pausebg.png");
+  visualsbg = loadImage("visualsbg.png");
   getSavedInfo();
   //spawns the player into the saved X and Y
   playerX = parseInt(playerData[0]);

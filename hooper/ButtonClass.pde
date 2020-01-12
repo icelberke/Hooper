@@ -53,6 +53,7 @@ int[] blue = {57, 130, 193};
 int[] black = {0,0,0};
 int[] white = {255,255,255};
 int[] grey = {196, 190, 190};
+int[] red = {227, 12, 5};
 
 boolean buttonCollision(int buttonX, int buttonY, int buttonW, int buttonH) {
 

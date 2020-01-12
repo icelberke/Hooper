@@ -1,6 +1,6 @@
 char prevState = '0';
 //Game State 0
-Button Back = new Button(10,10,70,50,20, "Back", black, blue, white, grey);
+Button Back = new Button(10,10,70,50,20, "Back", black, red, white, grey);
 Button Pause = new Button(10,10,70,50,20, "Pause", black, blue, white, grey);
 Button Play = new Button(25, 130, 200, 50, 40, "Play", black, blue, white, grey);
 Button Settings = new Button(25, 210, 200, 50, 40, "Settings", black, blue, white, grey);
@@ -76,7 +76,7 @@ void GamePage1(){
 }
 //gameState 2
 void GamePage2(){
-  background(courtImg);
+  background(viceCourt);
   rebound();
   createPlayer();
   drawBall();
@@ -92,7 +92,7 @@ void GamePage2(){
 }
 //gameState 4
 void GamePage3(){
-  background(courtImg);
+  background(whiteCourt);
   rebound();
   createPlayer();
   drawBall();
@@ -110,7 +110,7 @@ void GamePage3(){
 Button Home = new Button(206, 130, 200, 50, 40, "Home", black, blue, white, grey);
 //Pause page
 void PausePage(){
-  background(0,0,0);
+  background(pause);
   Home.Render();
   if(Home.Event() && mousePressed){
     wait(100);
@@ -174,13 +174,15 @@ Button gameBG3 = new Button(422, 80, 180, 100, 0, "1", black, blue, white, grey)
 
 
 void VisualsPage() {
-  background(0,0,0);
+  background(visualsbg);
   
   Back.Render();
   gameBG1.Render();
   gameBG2.Render();
   gameBG3.Render();
   image(courtImg, 10, 80, 180, 100);
+  image(viceCourt, 216, 80, 180, 100);
+  image(whiteCourt, 422, 80, 180, 100);
   
   if(Back.Event() && mousePressed){
     wait(100);
