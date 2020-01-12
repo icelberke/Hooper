@@ -5,7 +5,7 @@ Button Pause = new Button(10,10,70,50,20, "Pause", black, blue, white, grey);
 Button Play = new Button(25, 130, 200, 50, 40, "Play", black, blue, white, grey);
 Button Settings = new Button(25, 210, 200, 50, 40, "Settings", black, blue, white, grey);
 Button Quit = new Button(25, 290, 200, 50, 40, "Quit", black, blue, white, grey);
-void gameState0() {
+void MainMenuPage() {
   background(menuPic);
 
   Play.Render();
@@ -33,7 +33,7 @@ Button Game2 = new Button(156, 150, 300, 65, 0, "Game 2", black, blue, white, gr
 Button Game3 = new Button(156, 250, 300, 65, 0, "Game 3", black, blue, white, grey);
 
 //gameState 1
-void gameState1(){
+void GameSelectPage(){
   background(gameSelectPage);
   Game1.Render();
   if(Game1.Event() && mousePressed){
@@ -59,7 +59,7 @@ void gameState1(){
 }
 
 //gameState 3
-void gameState3(){
+void GamePage1(){
   background(courtImg);
   rebound();
   createPlayer();
@@ -75,7 +75,7 @@ void gameState3(){
   }
 }
 //gameState 2
-void gameState2(){
+void GamePage2(){
   background(courtImg);
   rebound();
   createPlayer();
@@ -91,7 +91,7 @@ void gameState2(){
   }
 }
 //gameState 4
-void gameState4(){
+void GamePage3(){
   background(courtImg);
   rebound();
   createPlayer();
@@ -109,7 +109,7 @@ void gameState4(){
 
 Button Home = new Button(206, 130, 200, 50, 40, "Home", black, blue, white, grey);
 //Pause page
-void gameState5(){
+void PausePage(){
   background(0,0,0);
   Home.Render();
   if(Home.Event() && mousePressed){
@@ -131,21 +131,21 @@ void gameState5(){
   
 
 }
-//Declare global slide values
-int soundSliderValue = 128;
-int playerSpeedSliderValue = 306;
-int playerAccuracySliderValue = 484;
 
 Button visualsButton = new Button(206,160,200,50,20, "Visuals", black, blue, white, grey);
 Button controlsButton = new Button(206,260,200,50,20, "Controls", black, blue, white, grey);
+Slider VolumeSlider = new Slider(78, 100, 100, 30, "Volume");
+Slider playerSpeedSlider = new Slider(256, 100, 100, 30, "Speed");
+Slider playerAccuracySlider = new Slider(434, 100, 100, 30, "Accuracy");
+
 
 
 //SETTINGS BAYBEEE
-void gameState6(){
+void SettingsPage(){
   background(settings);
-  soundSliderValue = createSlider(78, 100, 100, 30, soundSliderValue);
-  playerSpeedSliderValue = createSlider(256, 100, 100, 30, playerSpeedSliderValue);
-  playerAccuracySliderValue = createSlider(434, 100, 100, 30, playerAccuracySliderValue);  
+  VolumeSlider.Render();
+  playerSpeedSlider.Render();
+  playerAccuracySlider.Render();  
 
   Back.Render();
   visualsButton.Render();
@@ -168,17 +168,26 @@ void gameState6(){
   
 }
 
-void gameState7() {
+Button gameBG1 = new Button(10, 80, 180, 100, 0, "1", black, blue, white, grey);
+Button gameBG2 = new Button(216, 80, 180, 100, 0, "1", black, blue, white, grey);
+Button gameBG3 = new Button(422, 80, 180, 100, 0, "1", black, blue, white, grey);
+
+
+void VisualsPage() {
   background(0,0,0);
   
   Back.Render();
+  gameBG1.Render();
+  gameBG2.Render();
+  gameBG3.Render();
+  image(courtImg, 10, 80, 180, 100);
   
   if(Back.Event() && mousePressed){
     wait(100);
     gameState = '6';
   }
 }
-void gameState8() {
+void ControlsPage() {
   background(controls);
   
   Back.Render();

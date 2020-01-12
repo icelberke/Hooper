@@ -84,23 +84,23 @@ void setup() {
 
 void draw() {
   if(gameState == '0'){
-    gameState0();
+    MainMenuPage();
   }else if(gameState == '1'){
-    gameState1();
+    GameSelectPage();
   }else if(gameState == '2'){
-    gameState2();
+    GamePage1();
   }else if(gameState == '3'){
-    gameState3();
+    GamePage2();
   }else if(gameState == '4'){
-    gameState4();
+    GamePage3();
   }else if(gameState == '5'){
-    gameState5();
+    PausePage();
   }else if(gameState == '6'){
-    gameState6();
+    SettingsPage();
   }else if(gameState == '7'){
-    gameState7();
+    VisualsPage();
   }else if(gameState == '8'){
-    gameState8();
+    ControlsPage();
   }
 }
 
