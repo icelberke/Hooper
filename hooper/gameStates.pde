@@ -1,7 +1,10 @@
 char prevState = '0';
+boolean isRedCourt = true;
+boolean isViceCourt = false;
+boolean isWhiteCourt = false;
 //Game State 0
 Button Back = new Button(10,10,70,50,20, "Back", black, red, white, grey);
-Button Pause = new Button(10,10,70,50,20, "Pause", black, blue, white, grey);
+Button Pause = new Button(10,10,90,50,20, "Pause", black, blue, white, grey);
 Button Play = new Button(25, 130, 200, 50, 40, "Play", black, blue, white, grey);
 Button Settings = new Button(25, 210, 200, 50, 40, "Settings", black, blue, white, grey);
 Button Quit = new Button(25, 290, 200, 50, 40, "Quit", black, blue, white, grey);
@@ -63,7 +66,19 @@ Player player1 = new Player(100, 100, 'a', 'd', 's', 'w','x', 2, 500, 300);
 Player player2 = new Player(00, 100, 'j', 'l', 'k', 'i','m', 2, 500, 300);
 //gameState 3
 void GamePage1(){
-  background(courtImg);
+  if(isRedCourt){
+    background(courtImg);
+  }else if(isViceCourt){
+    background(viceCourt);
+  }else if(isWhiteCourt){
+    background(whiteCourt);
+  }
+  image(scoreboard, 0, 315, 612, 40);
+  fill(255,255,255);
+  textSize(20);
+  textAlign(CENTER, CENTER);
+  text("100", 148, 320, 55, 25);
+  text("112", 350, 320, 55, 25);
   drawBall();
   setSavedInfo();
   Pause.Render();
@@ -175,8 +190,26 @@ void VisualsPage() {
   
   Back.Render();
   gameBG1.Render();
+  if(Back.Event() && mousePressed){
+    wait(100);
+    isRedCourt = true;
+    isViceCourt = false;
+    isWhiteCourt = false;
+  }
   gameBG2.Render();
+  if(Back.Event() && mousePressed){
+    wait(100);
+    isRedCourt = false;
+    isViceCourt = true;
+    isWhiteCourt = false;
+  }
   gameBG3.Render();
+  if(Back.Event() && mousePressed){
+    wait(100);
+    isRedCourt = false;
+    isViceCourt = false;
+    isWhiteCourt = true;
+  }
   image(courtImg, 10, 80, 180, 100);
   image(viceCourt, 216, 80, 180, 100);
   image(whiteCourt, 422, 80, 180, 100);

@@ -7,7 +7,7 @@ int hoopX = 536;
 int hoopY = 168;
 char gameState = '0';
 
-PImage courtImg, whiteCourt, viceCourt, ball, menuPic, gameSelectPage, settings, controls, pause, visualsbg, playerLeftImg, playerRightImg;
+PImage courtImg, whiteCourt, viceCourt, ball, menuPic, gameSelectPage, settings, controls, pause, visualsbg, playerLeftImg, playerRightImg, scoreboard;
 
 
 void drawBall() {
@@ -29,6 +29,7 @@ void setup() {
   visualsbg = loadImage("./pictures/visualsbg.png");
   playerLeftImg = loadImage("./pictures/player1sprite.png");
   playerRightImg = loadImage("./pictures/player2sprite.png");
+  scoreboard = loadImage("./pictures/scoreboardpic.png");
   getSavedInfo();
   //spawns the player into the saved X and Y
   playerX = parseInt(playerData[0]);

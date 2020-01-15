@@ -36,6 +36,8 @@ class Player{
   void getBall(){
     if(x + 55 > ballX && x + 35 < ballX + 45 && y + 88 > ballY && y+28 < ballY + 65){
       hasBall = true;
+    }else{
+      hasBall = false;
     }
   }
   
