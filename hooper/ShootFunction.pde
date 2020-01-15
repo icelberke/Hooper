@@ -1,6 +1,4 @@
-void shoot() {
-  if (player1HasBall && shotSuccessCalculator()) {
-    player1HasBall = false;
+void shoot(int ballX, int ballY, int hoopX, int hoopY) {
     while (ballX != hoopX || ballY != hoopY) {
       if (ballX > hoopX) {
         ballX -= 1;
@@ -14,6 +12,5 @@ void shoot() {
       if (ballY < hoopY) {
         ballY += 1;
       }
-    }
-  }
+   }
 }

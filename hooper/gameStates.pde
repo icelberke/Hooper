@@ -18,6 +18,7 @@ void MainMenuPage() {
   Settings.Render();
   if(Settings.Event() && mousePressed) {
     wait(100);
+    prevState = '0';
     gameState = '6';
   }
   
@@ -58,51 +59,46 @@ void GameSelectPage(){
   }
 }
 
+Player player1 = new Player(100, 100, 'a', 'd', 's', 'w','x', 2, 500, 300);
+Player player2 = new Player(00, 100, 'j', 'l', 'k', 'i','m', 2, 500, 300);
 //gameState 3
 void GamePage1(){
   background(courtImg);
-  rebound();
-  createPlayer();
   drawBall();
-  shotBar();
-  keyReleased = 'n';
   setSavedInfo();
   Pause.Render();
+  player1.render();
+  player2.render();
   
   if(Pause.Event() && mousePressed){
     wait(100);
+    prevState = '2';
     gameState = '5';
   }
 }
 //gameState 2
 void GamePage2(){
   background(viceCourt);
-  rebound();
-  createPlayer();
   drawBall();
-  shotBar();
-  keyReleased = 'n';
   setSavedInfo();
   Pause.Render();
   
   if(Pause.Event() && mousePressed){
     wait(100);
+    prevState = '3';
     gameState = '5';
   }
 }
 //gameState 4
 void GamePage3(){
   background(whiteCourt);
-  rebound();
-  createPlayer();
   drawBall();
-  shotBar();
-  keyReleased = 'n';
   setSavedInfo();
   Pause.Render();
   
   if(Pause.Event() && mousePressed){
     wait(100);
+    prevState = '4';
     gameState = '5';
   }
 }
@@ -120,6 +116,7 @@ void PausePage(){
   Settings.Render();
   if(Settings.Event() && mousePressed){
     wait(100);
+    prevState = '5';
     gameState = '6';
   }
   Back.Render();
@@ -153,7 +150,7 @@ void SettingsPage(){
   
   if(Back.Event() && mousePressed){
     wait(100);
-    gameState = '0';
+    gameState = prevState;
   }
   
   if(visualsButton.Event() && mousePressed){

@@ -1,84 +1,34 @@
-//variable declaration
-int playerX = 159;
-int playerY = 154;
-
+int playerX = 0;
+int playerY = 0;
 int ballX = 295;
 int ballY = 165;
 
 int hoopX = 536;
 int hoopY = 168;
-
-int velocity = 5;
-
 char gameState = '0';
 
-boolean player1HasBall = false;
+PImage courtImg, whiteCourt, viceCourt, ball, menuPic, gameSelectPage, settings, controls, pause, visualsbg, playerLeftImg, playerRightImg;
 
-PImage courtImg, whiteCourt, viceCourt, ball, menuPic, gameSelectPage, settings, controls, pause, visualsbg;
-
-
-
-
-//functions
-void createPlayer() {
-  rect(playerX, playerY, 50, 50);
-}
 
 void drawBall() {
   image(ball, ballX, ballY, 25, 25);
 }
 
-void rebound() {
-  if (ballX - playerX <= 50 && ballY - playerY <= 50){
-    player1HasBall = true;
-    
-  }
-}
-
-int shotTakenSpot() {
-  if (playerX <= 306) {
-    //halfcourt
-    return 1;
-  }else if(playerX + 50 >= 410 && playerY + 50 > 50 && playerY <= 302) {
-    return 2;
-    //2pointer
-  }else{
-    return 3;
-    //3pointer
-  }
-}
-
-boolean shotSuccessCalculator() {
-  shotBar();
-  int percantage = 95;
-  if(shotTakenSpot() == 1) {
-    percantage -= 75;
-  }else if(shotTakenSpot() == 2) {
-    percantage -= 10;
-  }else if(shotTakenSpot() == 3) {
-    percantage -= 30;
-  }
-  percantage -= meterPercantage;
-  if (percantage >= (int)random(0,101)){
-    return true;
-  }else{
-    return false;
-  }
-}
-
 //loops
 void setup() {
   size(612, 355);
-  courtImg = loadImage("basketball-court-clipart.jpg");
-  ball = loadImage("ball.png");
-  menuPic = loadImage("test.png");
-  gameSelectPage = loadImage("gameSelectPage.jpg");
-  settings = loadImage("settingsbg.png");
-  controls = loadImage("controlsbg.png");
-  whiteCourt = loadImage("whiteCourt.png");
-  viceCourt = loadImage("viceCourt.png");
-  pause = loadImage("pausebg.png");
-  visualsbg = loadImage("visualsbg.png");
+  courtImg = loadImage("./pictures/basketball-court-clipart.jpg");
+  ball = loadImage("./pictures/ball.png");
+  menuPic = loadImage("./pictures/test.png");
+  gameSelectPage = loadImage("./pictures/gameSelectPage.jpg");
+  settings = loadImage("./pictures/settingsbg.png");
+  controls = loadImage("./pictures/controlsbg.png");
+  whiteCourt = loadImage("./pictures/whiteCourt.png");
+  viceCourt = loadImage("./pictures/viceCourt.png");
+  pause = loadImage("./pictures/pausebg.png");
+  visualsbg = loadImage("./pictures/visualsbg.png");
+  playerLeftImg = loadImage("./pictures/player1sprite.png");
+  playerRightImg = loadImage("./pictures/player2sprite.png");
   getSavedInfo();
   //spawns the player into the saved X and Y
   playerX = parseInt(playerData[0]);

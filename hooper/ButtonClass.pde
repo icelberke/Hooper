@@ -69,17 +69,3 @@ boolean buttonCollision(int buttonX, int buttonY, int buttonW, int buttonH) {
         return false;    
       }
 }
-
-int createSlider(int sliderX, int sliderY, int sliderW, int sliderH, int sliderValue) {
-  fill(0,0,0);
-  strokeWeight(3);
-  stroke(0,100,0);
-  rect(sliderX, sliderY, sliderW, sliderH);
-  fill(200, 0, 0);
-  noStroke();
-  rect(sliderX, sliderY, sliderValue - sliderX, sliderH);
-  if( buttonCollision(sliderX, sliderY, sliderW, sliderY) && mousePressed ) {
-    sliderValue =  mouseX;
-  }
-    return sliderValue;
-}
